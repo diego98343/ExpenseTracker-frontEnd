@@ -1,0 +1,46 @@
+<div class="w-50 p-3">
+    <div class="form-outline mb-4">
+        <input type="search"
+         name="keyword"
+         [(ngModel)]="filter.keyword" 
+         (input)="listExpenses()"
+         class="form-control" 
+         id="datatable-search-input">
+        <label class="form-label" for="datatable-search-input">Search</label>
+    </div>
+    <div>
+        <select> 
+            <option>Name</option>
+            <option>Amount</option>
+        </select>
+    </div>
+    <div id="datatable">
+    </div>
+</div>
+<div class="w-75 p-3">
+    <a routerLink="/addExpense" type="button" class="btn btn-success">add</a>
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>EXPENSE</th>
+                <th>AMOUNT</th>
+                <th>DESCRIPTION</th>
+                <th>EDIT</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr *ngFor="let expense of expenses">
+
+                <td>{{expense.id}}</td>
+                <td>{{expense.expense}}</td>
+                <td>{{expense.amount | currency: 'USD'}}</td>
+                <td>{{expense.description}}</td>
+                <td><a type="button" class="btn btn-success" routerLink="/editExpense/{{expense.id}}">edit</a></td>
+                <!-- <td><button (click)="deleteExpense(7)" type="button" class="btn btn-dark"> delete</button></td> -->
+            </tr>
+        </tbody>
+    </table>
+
+</div>

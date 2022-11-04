@@ -1,0 +1,23 @@
+
+<form (ngSubmit)="saveExpense()">
+
+    <div class="w-75 p-3">
+         <div  class="w-75 p-3">
+              <h3>Add expense</h3>
+              <div >
+                   <label> Expense</label>
+                   <input class="form-control" type="text" placeholder="Enter expense" name="expense" [(ngModel)]="displayExpense.expense" >
+              </div>
+              <div class="form-group">
+                   <label> Description</label>
+                   <input type="text" class="form-control" placeholder="Enter description" name="description" [(ngModel)]="displayExpense.description" >
+              </div>
+              <div class="form-group">
+                   <label>Amount</label>
+                   <input type="text" class="form-control" placeholder="Enter amount" name="amount" [(ngModel)]="displayExpense.amount" >
+              </div>
+              <button type="submit" class="btn btn-primary">add expense</button>
+              <button type="submit " *ngIf="displayExpense.id" (click)="deleteExpense(displayExpense.id)" class="btn btn-danger"> Delete</button>
+         </div>
+    </div>
+</form>
